@@ -1,10 +1,11 @@
 define((require, exports, module) => {
     'use strict'
 
-    const Backbone = require('backbone')
+    //const Backbone = require('backbone')
+    const LayoutManager = require('layoutmanager')
     const template = require('text!./template.html')
 
-    module.exports = Backbone.View.extend({
+    module.exports = LayoutManager.extend({
         template: _.template(template)
     })
 })
