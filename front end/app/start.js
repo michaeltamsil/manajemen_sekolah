@@ -3,7 +3,6 @@ define((require, exports, module) => {
     const Router = require('router')
 
     module.exports = () => {
-        debugger
         let router = new Router()
         router.start()
     }
