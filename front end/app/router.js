@@ -10,7 +10,7 @@ define((require, exports, module) => {
             this.module = {}
         },
         routes:{
-            '':'dashboard',
+            '':'showDashboard',
             'siswa': 'showSiswa',
             'guru': 'showGuru',
             'kelas': 'showKelas',
@@ -22,7 +22,11 @@ define((require, exports, module) => {
             Backbone.history.start()
         },
         showDashboard(){
-            debugger
+            require(['./dashboard/view'], View => {
+                let view = new View()
+                $('body').append(view.$el)
+                view.render()
+            })
         },
         showSiswa(){
 
