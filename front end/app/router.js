@@ -29,22 +29,46 @@ define((require, exports, module) => {
             })
         },
         showSiswa(){
-
+            require(['./siswa/view'], View => {
+                let view = new View()
+                $('body').prepend(view.$el)
+                view.render()
+            })
         },
         showGuru(){
-
+            require(['./guru/view'], View => {
+                let view = new View()
+                $('body').prepend(view.$el)
+                view.render()
+            })
         },
         showKelas(){
-
+            require(['./kelas/view'], View => {
+                let view = new View()
+                $('body').prepend(view.$el)
+                view.render()
+            })
         },
         showMata_pelajaran(){
-
+            require(['./mata_pelajaran/view'], View => {
+                let view = new View()
+                $('body').prepend(view.$el)
+                view.render()
+            })
         },
         showJadwal_pelajaran(){
-
+            require(['./jadwal_pelajaran/view'], View => {
+                let view = new View()
+                $('body').prepend(view.$el)
+                view.render()
+            })
         },
         showRaport(){
-
+            require(['./raport/view'], View => {
+                let view = new View()
+                $('body').prepend(view.$el)
+                view.render()
+            })
         }
 
     })
