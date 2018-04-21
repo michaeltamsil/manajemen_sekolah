@@ -5,5 +5,6 @@ define((require, exports, module) => {
     module.exports = () => {
         debugger
         let router = new Router()
+        router.start()
     }
 })
