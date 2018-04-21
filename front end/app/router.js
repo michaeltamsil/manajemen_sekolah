@@ -1,7 +1,47 @@
 define((require, exports, module) => {
     'use strict'
 
-    module.exports = () => {
-        
-    }
+    const Backbone = require('backbone')
+
+    module.exports = Backbone.Router.extend({
+        // sama
+        //initialize: function(){
+        initialize(){
+            this.module = {}
+        },
+        routes:{
+            '':'dashboard',
+            'siswa': 'showSiswa',
+            'guru': 'showGuru',
+            'kelas': 'showKelas',
+            'mata_pejalaran': 'showMata_pelajaran',
+            'jadwal_pelajaran': 'showJadwal_pelajaran',
+            'raport': 'showRaport'
+        },
+        start(){
+            Backbone.history.start()
+        },
+        showDashboard(){
+            debugger
+        },
+        showSiswa(){
+
+        },
+        showGuru(){
+
+        },
+        showKelas(){
+
+        },
+        showMata_pelajaran(){
+
+        },
+        showJadwal_pelajaran(){
+
+        },
+        showRaport(){
+
+        }
+
+    })
 })
