@@ -24,7 +24,7 @@ define((require, exports, module) => {
         showDashboard(){
             require(['./dashboard/view'], View => {
                 let view = new View()
-                $('body').append(view.$el)
+                $('body').prepend(view.$el)
                 view.render()
             })
         },
