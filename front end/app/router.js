@@ -7,10 +7,6 @@ define((require, exports, module) => {
         //initialize: function(){   // adalah sama
         initialize(){
             this.module = {}
-            this.on('route', () => {
-                // debugger;
-            })
-
         },
         routes:{
             '':'showDashboard',
@@ -19,7 +15,8 @@ define((require, exports, module) => {
             'kelas': 'showKelas',
             'mata_pejalaran': 'showMata_pelajaran',
             'jadwal_pelajaran': 'showJadwal_pelajaran',
-            'raport': 'showRaport'
+            'raport': 'showRaport',
+            '(*not_found)': 'showNot_Found'
         },
         start(){
             Backbone.history.start()
@@ -29,9 +26,8 @@ define((require, exports, module) => {
             if(!this.layoutView){
                 require(['./layout/view'], View => {
                     this.layoutView = new View()
-                    $('body').prepend(this.layoutView.render().$el)
                     this.layoutView.setView('#content', this.newModule)
-
+                    $('body').prepend(this.layoutView.render().$el)
                 })
             }else{
                 this.layoutView.setView('#content', this.newModule)
@@ -50,39 +46,33 @@ define((require, exports, module) => {
         },
         showGuru(){
             require(['./guru/view'], View => {
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
             })
         },
         showKelas(){
             require(['./kelas/view'], View => {
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
             })
         },
         showMata_pelajaran(){
             require(['./mata_pelajaran/view'], View => {
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
             })
         },
         showJadwal_pelajaran(){
             require(['./jadwal_pelajaran/view'], View => {
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
             })
         },
         showRaport(){
             require(['./raport/view'], View => {
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
+            })
+        },
+        showNot_Found(){
+            require(['./not_found/view'], View => {
+                this.fnNewModule(View)
             })
         }
-
     })
 })
