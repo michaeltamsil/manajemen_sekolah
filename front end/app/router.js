@@ -13,8 +13,8 @@ define((require, exports, module) => {
             'siswa': 'showSiswa',
             'guru': 'showGuru',
             'kelas': 'showKelas',
-            'mata_pejalaran': 'showMata_pelajaran',
-            'jadwal_pelajaran': 'showJadwal_pelajaran',
+            'mata_pelajaran': 'showMata_Pelajaran',
+            'jadwal_pelajaran': 'showJadwal_Pelajaran',
             'raport': 'showRaport',
             '(*not_found)': 'showNot_Found'
         },
@@ -54,12 +54,12 @@ define((require, exports, module) => {
                 this.fnNewModule(View)
             })
         },
-        showMata_pelajaran(){
+        showMata_Pelajaran(){
             require(['./mata_pelajaran/view'], View => {
                 this.fnNewModule(View)
             })
         },
-        showJadwal_pelajaran(){
+        showJadwal_Pelajaran(){
             require(['./jadwal_pelajaran/view'], View => {
                 this.fnNewModule(View)
             })
