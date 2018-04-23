@@ -2,13 +2,15 @@ define((require, exports, module) => {
     'use strict'
 
     const Backbone = require('backbone')
-    let Radio = require('backbone.radio')
-    
 
     module.exports = Backbone.Router.extend({
         //initialize: function(){   // adalah sama
         initialize(){
             this.module = {}
+            this.on('route', () => {
+                // debugger;
+            })
+
         },
         routes:{
             '':'showDashboard',
@@ -22,19 +24,28 @@ define((require, exports, module) => {
         start(){
             Backbone.history.start()
         },
+        fnNewModule(View){
+            this.newModule = new View()
+            if(!this.layoutView){
+                require(['./layout/view'], View => {
+                    this.layoutView = new View()
+                    $('body').prepend(this.layoutView.render().$el)
+                    this.layoutView.setView('#content', this.newModule)
+
+                })
+            }else{
+                this.layoutView.setView('#content', this.newModule)
+                this.newModule.render()
+            }
+        },
         showDashboard(){
             require(['./dashboard/view'], View => {
-
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
             })
         },
         showSiswa(){
             require(['./siswa/view'], View => {
-                let view = new View()
-                $('body').prepend(view.$el)
-                view.render()
+                this.fnNewModule(View)
             })
         },
         showGuru(){

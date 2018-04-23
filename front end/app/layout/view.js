@@ -4,7 +4,7 @@ define((require, exports, module) => {
     const LayoutManager = require('layoutmanager'),
     template = require('text!./template.html'),
     Navbar = require('./navbar/view'),
-    Sidebar = require('./sidebar/view')
+    Sidebar = require('./sidebar/view'),
     Content = require('./content/view')
 
     module.exports = LayoutManager.extend({

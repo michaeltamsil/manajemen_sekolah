@@ -6,6 +6,7 @@ define((require, exports, module) => {
     const template = require('text!./template.html')
 
     module.exports = LayoutManager.extend({
+        className: 'sidebar-sticky',
         template: _.template(template)
     })
 })
