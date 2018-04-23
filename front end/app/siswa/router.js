@@ -1,11 +1,13 @@
 define((require, exports, module) => {
     'use strict'
 
-    const SubRoute = require('backbone.subroute')
+    const SubRoute = require('backbone.subroute'),
+        Radio = require('backbone.radio')
 
-    module.exports = Backbone.SubRoute.extend({
+    module.exports = SubRoute.extend({
         initialize(){
-            this.module = {}
+            //this.routeModule = {}
+            this.channelLayout = Radio.channel('layout')
         },
         routes:{
             '': 'showList',
@@ -15,10 +17,14 @@ define((require, exports, module) => {
             'delete': 'showDelete'
         },
         showList(){
-
+            require(['./view'], View => {
+                this.channelLayout.request('updateContent', View)
+            })
         },
         showCreate(){
-            debugger;
+            require(['./create/view'], View => {
+                this.channelLayout.request('updateContent', View)
+            })
         },
     })
 })

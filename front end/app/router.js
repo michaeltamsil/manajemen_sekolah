@@ -1,16 +1,19 @@
 define((require, exports, module) => {
     'use strict'
 
-    const Backbone = require('backbone')
+    const Backbone = require('backbone'),
+        Radio = require('backbone.radio')
 
     module.exports = Backbone.Router.extend({
         //initialize: function(){   // adalah sama
         initialize(){
-            this.module = {}
+            this.routerModule = {}
+            this.channelLayout = Radio.channel('layout')
+            this.channelLayout.reply('updateContent', this.fnNewModule, this)
         },
         routes:{
             '':'showDashboard',
-            'siswa': 'showSiswa',
+            'siswa(/*subrouter)': 'loadRouterSiswa',
             'guru': 'showGuru',
             'kelas': 'showKelas',
             'mata_pelajaran': 'showMata_Pelajaran',
@@ -39,10 +42,17 @@ define((require, exports, module) => {
                 this.fnNewModule(View)
             })
         },
-        showSiswa(){
-            require(['./siswa/view'], View => {
-                this.fnNewModule(View)
-            })
+        loadRouterSiswa(){
+            // require(['./siswa/view'], View => {
+            //     this.fnNewModule(View)
+            // })
+            if(!this.routerModule.siswa){
+                require(['./siswa/router'], Router => {
+                    this.routerModule.siswa = new Router(`siswa`,{
+                        createTrailingSlashRoutes: true
+                    })
+                })
+            }
         },
         showGuru(){
             require(['./guru/view'], View => {
