@@ -7,6 +7,7 @@ require.config({
         'require': `${pathLibs}require-2.3.5.min`,
         'bootstrap':`${pathLibs}bootstrap.bundle-4.1.0.min`,
         'backbone':`${pathLibs}backbone-1.3.3.min`,
+        'backbone.radio': `${pathLibs}backbone.radio.min`,
         'marionette': `${pathLibs}backbone.marionette-3.5.1.min`,
         'layoutmanager':`${pathLibs}backbone.layoutmanager-1.0.0`,
         'subroute': `${pathLibs}backbone.subroute-0.4.6.min`,
@@ -29,6 +30,10 @@ require.config({
         backbone: {
             deps: ['underscore', 'bootstrap'],
             exports: 'Backbone'
+        },
+        'backbone.radio':{
+            deps: ['backbone'],
+            exports: 'Radio'
         },
         subroute: {
             deps: ['backbone']

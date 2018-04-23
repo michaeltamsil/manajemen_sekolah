@@ -2,10 +2,11 @@ define((require, exports, module) => {
     'use strict'
 
     const Backbone = require('backbone')
+    let Radio = require('backbone.radio')
+    
 
     module.exports = Backbone.Router.extend({
-        // sama
-        //initialize: function(){
+        //initialize: function(){   // adalah sama
         initialize(){
             this.module = {}
         },
@@ -23,6 +24,7 @@ define((require, exports, module) => {
         },
         showDashboard(){
             require(['./dashboard/view'], View => {
+
                 let view = new View()
                 $('body').prepend(view.$el)
                 view.render()
