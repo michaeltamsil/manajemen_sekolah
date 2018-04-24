@@ -5,6 +5,7 @@ define((require, exports, module) => {
 
     module.exports = Marionette.CollectionView.extend({
         tagName: 'tbody',
+        className: 'tr-pointer',
         childView: Tr
     })
 })

@@ -12,19 +12,31 @@ define((require, exports, module) => {
         routes:{
             '': 'showList',
             'create': 'showCreate',
-            'detail': 'showDetail',
-            'update': 'showUpdate',
-            'delete': 'showDelete'
+            'delete': 'showDelete',
+            '(:id)': 'showUpdate',
+            '(*anything)': 'showNotFound'
         },
         showList(){
             require(['./view'], View => {
                 this.channelLayout.request('updateContent', View)
             })
         },
-        showCreate(){
+        showCreate() {
             require(['./create/view'], View => {
                 this.channelLayout.request('updateContent', View)
             })
         },
+        showDelete(){
+
+        },
+        showUpdate() {
+            require(['./update/view'], View => {
+                this.channelLayout.request('updateContent', View)
+            })
+        },
+        showNotFound() {
+            alert('show not found')
+        }
+
     })
 })

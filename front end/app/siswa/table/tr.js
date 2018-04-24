@@ -5,6 +5,20 @@ define((require, exports, module) => {
 
     module.exports = LayoutManager.extend({
         tagName: 'tr',
-        template: _.template(template)
+        template: _.template(template),
+        events: {
+            'click': 'showUpdate',
+            'click [name="delete"]': 'showDelete'
+        },
+        showUpdate(e) {
+            window.location.hash += `/${this.model.id}`
+        },
+        showDelete(e){
+            e.stopPropagation()
+            const result = window.confirm('apakah anda ingin menghapus data ini?')
+            if(result){
+                this.model.destroy()
+            }
+        }
     })
 })

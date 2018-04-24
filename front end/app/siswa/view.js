@@ -6,6 +6,7 @@ define((require, exports, module) => {
         Table = require('./table/view')
 
     module.exports = LayoutManager.extend({
+        el: false,
         template: _.template(template),
         initialize() {
             this.table = new Table()
@@ -14,7 +15,7 @@ define((require, exports, module) => {
             })
         },
         afterRender() {
-            this.$('h5').after(this.table.$el)
+            this.$el.after(this.table.$el)
             this.table.render()
         }
     })
