@@ -4,6 +4,11 @@ define((require, exports, module) => {
     const Backbone = require('backbone')
 
     module.exports = Backbone.Model.extend({
-        urlRoot: `${urlAPI}siswa`
+        urlRoot: `${urlAPI}siswa`,
+        initialize(){
+            this.on('error', (model, response) => {
+                alert(response.statusText)
+            })
+        }
     })
 })

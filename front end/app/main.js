@@ -12,6 +12,7 @@ require.config({
         'backbone':`${pathLibs}backbone-1.3.3.min`,
         'backbone.radio': `${pathLibs}backbone.radio.min`,
         'backbone.subroute': `${pathLibs}backbone.subroute-0.4.6.min`,
+        'backbone.syphon': `${pathLibs}backbone.syphon-0.8.0.min`,
         'marionette': `${pathLibs}backbone.marionette-3.5.1.min`,
         'layoutmanager':`${pathLibs}backbone.layoutmanager-1.0.0`,
         'subroute': `${pathLibs}backbone.subroute-0.4.6.min`,
@@ -42,6 +43,10 @@ require.config({
         'backbone.subroute': {
             deps: ['backbone'],
             exports: 'SubRoute'
+        },
+        'backbone.syphon': {
+            deps: ['backbone'],
+            exports: 'Syphon'
         },
         'layoutmanager': {
             deps: ['backbone'],
