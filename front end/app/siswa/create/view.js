@@ -1,10 +1,9 @@
 define((require, exports, module) => {
     'use strict'
 
-    //const Backbone = require('backbone')
     const LayoutManager = require('layoutmanager'),
         template = require('text!./template.html'),
-        Model = require('./model'),
+        Model = require('./../model'),
         Syphon = require('backbone.syphon')
 
     module.exports = LayoutManager.extend({
