@@ -6,13 +6,11 @@ define((require, exports, module) => {
 
     module.exports = SubRoute.extend({
         initialize(){
-            //this.routeModule = {}
             this.channelLayout = Radio.channel('layout')
         },
         routes:{
             '': 'showList',
             'create': 'showCreate',
-            'delete': 'showDelete',
             '(:id)': 'showUpdate',
             '(*anything)': 'showNotFound'
         },
@@ -25,9 +23,6 @@ define((require, exports, module) => {
             require(['./create/view'], View => {
                 this.channelLayout.request('updateContent', View)
             })
-        },
-        showDelete(){
-
         },
         showUpdate() {
             require(['./update/view'], View => {
