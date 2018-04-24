@@ -33,6 +33,8 @@ define((require, exports, module) => {
                     $('body').prepend(this.layoutView.render().$el)
                 })
             }else{
+                let previousView = this.layoutView.getView('#content')
+                previousView && previousView.remove()
                 this.layoutView.setView('#content', this.newModule)
                 this.newModule.render()
             }

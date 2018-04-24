@@ -5,6 +5,36 @@
       "birthdate": "1985-07-10",
       "gender": "laki-laki",
       "id": 1
+    },
+    {
+      "name": "",
+      "birthdate": "",
+      "gender": null,
+      "id": 2
+    },
+    {
+      "name": "",
+      "birthdate": "",
+      "gender": null,
+      "id": 3
+    },
+    {
+      "name": "",
+      "birthdate": "",
+      "gender": null,
+      "id": 4
+    },
+    {
+      "name": "",
+      "birthdate": "",
+      "gender": null,
+      "id": 5
+    },
+    {
+      "name": "",
+      "birthdate": "",
+      "gender": null,
+      "id": 6
     }
   ]
 }

@@ -10,7 +10,14 @@ define((require, exports, module) => {
     module.exports = LayoutManager.extend({
         className: 'row',
         template: _.template(template),
-        model: new Model(),
+        initialize(){
+            this.model = new Model()
+            this.listenTo(this.model, 'sync', ()=> {
+                let hashSplit = window.location.hash.split('/')
+                hashSplit.pop()
+                window.location.hash = `${hashSplit.join('/')}`
+            })
+        },
         events:{
             'submit form': 'submitForm'
         },
