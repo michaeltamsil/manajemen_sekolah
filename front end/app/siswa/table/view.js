@@ -1,14 +1,16 @@
 define((require, exports, module) => {
     'use strict';
 
-    let
+    const
         Marionette = require('marionette'),
         template = require('text!./template.html'),
-        Tbody = require('./tbody')
+        Tbody = require('./tbody'),
+        Collection = require('./collection')
+
 
     module.exports = Marionette.View.extend({
         tagName: 'table',
-        className: 'table table-hover table-sm table-borderless',
+        className: 'table table-hover table-sm table-borderless bg-black',
         template: _.template(template),
         regions:{
             body:{
@@ -16,10 +18,14 @@ define((require, exports, module) => {
                 replaceElement: true
             }
         },
+        initialize() {
+            this.collection = new Collection()
+        },
         onRender(){
             this.showChildView('body', new Tbody({
                 collection: this.collection
             }))
+            this.collection.fetch()
         }
     })
 })
