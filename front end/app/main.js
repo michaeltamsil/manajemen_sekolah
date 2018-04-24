@@ -1,4 +1,7 @@
-const pathLibs = '/libs/';
+const
+    pathLibs = '/libs/',
+    urlAPI = 'http://localhost:3000/'
+
 
 require.config({
     paths:{
