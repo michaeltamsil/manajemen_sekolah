@@ -38,5 +38,39 @@
       "id": 4,
       "name": "Kelas 2 A"
     }
+  ],
+  "mata_pelajaran": [
+    {
+      "name": "Javascript Backbonejs",
+      "id": 1
+    },
+    {
+      "name": "Javascript Nodejs",
+      "id": 2
+    },
+    {
+      "name": "Javascript MongoDB",
+      "id": 3
+    },
+    {
+      "name": "Javascript React Native",
+      "id": 4
+    },
+    {
+      "name": "Javascript Reactjs",
+      "id": 5
+    },
+    {
+      "name": "Arduino",
+      "id": 6
+    },
+    {
+      "name": "Raspberry",
+      "id": 7
+    },
+    {
+      "name": "Artificial Inteligence",
+      "id": 8
+    }
   ]
 }

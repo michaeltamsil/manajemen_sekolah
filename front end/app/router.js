@@ -77,9 +77,13 @@ define((require, exports, module) => {
             }
         },
         showMata_Pelajaran(){
-            require(['./mata_pelajaran/view'], View => {
-                this.fnNewModule(View)
-            })
+            if(!this.routerModule.mata_pelajaran){
+                require([`./mata_pelajaran/router`], Router => {
+                    this.routerModule.mata_pelajaran = new Router('mata_pelajaran',{
+                        createTrailingSlashRoutes: true
+                    })
+                })
+            }
         },
         showJadwal_Pelajaran(){
             require(['./jadwal_pelajaran/view'], View => {
