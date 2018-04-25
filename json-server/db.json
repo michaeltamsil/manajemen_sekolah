@@ -23,20 +23,20 @@
   ],
   "kelas": [
     {
-      "name": "Kelas 1 (PHP)",
-      "id": 1
+      "id": 1,
+      "name": "Kelas 1 A"
     },
     {
-      "name": "kelas 2 (Javascript Web Front End)",
-      "id": 2
+      "id": 2,
+      "name": "kelas 1 B"
     },
     {
       "id": 3,
-      "name": "Kelas 3 (Javascript Back End & Database)"
+      "name": "Kelas 1 C"
     },
     {
       "id": 4,
-      "name": "Kelas 4 (Javascript Mobile React Native)"
+      "name": "Kelas 2 A"
     }
   ]
 }
