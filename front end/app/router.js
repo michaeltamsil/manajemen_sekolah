@@ -17,7 +17,7 @@ define((require, exports, module) => {
             'guru(/*subrouter)': 'loadRouterGuru',
             'kelas(/*subrouter)': 'loadRouterKelas',
             'mata_pelajaran(/*subrouter)': 'showMata_Pelajaran',
-            'jadwal_pelajaran': 'showJadwal_Pelajaran',
+            'jadwal_pelajaran(/*subrouter)': 'showJadwal_Pelajaran',
             'raport': 'showRaport',
             '(*not_found)': 'showNot_Found'
         },
@@ -86,9 +86,13 @@ define((require, exports, module) => {
             }
         },
         showJadwal_Pelajaran(){
-            require(['./jadwal_pelajaran/view'], View => {
-                this.fnNewModule(View)
-            })
+            if(!this.routerModule.jadwal_pelajaran){
+                require([`./jadwal_pelajaran/router`], Router => {
+                    this.routerModule.jadwal_pelajaran = new Router('jadwal_pelajaran',{
+                        createTrailingSlashRoutes: true
+                    })
+                })
+            }
         },
         showRaport(){
             require(['./raport/view'], View => {

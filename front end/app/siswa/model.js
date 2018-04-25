@@ -1,10 +1,11 @@
 define((require, exports, module) => {
     'use strict'
 
-    const Backbone = require('backbone')
+    const Backbone = require('backbone'),
+        config = require('config')
 
     module.exports = Backbone.Model.extend({
-        urlRoot: `${urlAPI}siswa`,
+        urlRoot: `${config.urlAPI}siswa`,
         initialize(){
             this.on('error', (model, response) => {
                 alert(response.statusText)

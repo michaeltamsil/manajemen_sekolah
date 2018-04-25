@@ -1,6 +1,7 @@
 const
     pathLibs = '/libs/',
-    urlAPI = 'http://localhost:3000/'
+    pathLibsCommon = '/libscommon/'
+
 
 
 require.config({
@@ -16,7 +17,10 @@ require.config({
         'marionette': `${pathLibs}backbone.marionette-3.5.1.min`,
         'layoutmanager':`${pathLibs}backbone.layoutmanager-1.0.0`,
         'subroute': `${pathLibs}backbone.subroute-0.4.6.min`,
-        'text': `${pathLibs}text-2.0.15`
+        'text': `${pathLibs}text-2.0.15`,
+        'config': `${pathLibsCommon}config`,
+        'function': `${pathLibsCommon}function`,
+        'component': './../component'
     },
     shim:{
         jquery: {
