@@ -16,7 +16,7 @@ define((require, exports, module) => {
             'siswa(/*subrouter)': 'loadRouterSiswa',
             'guru(/*subrouter)': 'loadRouterGuru',
             'kelas(/*subrouter)': 'loadRouterKelas',
-            'mata_pelajaran': 'showMata_Pelajaran',
+            'mata_pelajaran(/*subrouter)': 'showMata_Pelajaran',
             'jadwal_pelajaran': 'showJadwal_Pelajaran',
             'raport': 'showRaport',
             '(*not_found)': 'showNot_Found'
