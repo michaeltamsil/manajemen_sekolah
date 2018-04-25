@@ -20,5 +20,23 @@
       "birthdate": "1999-02-01",
       "gender": "laki-laki"
     }
+  ],
+  "kelas": [
+    {
+      "name": "Kelas 1 (PHP)",
+      "id": 1
+    },
+    {
+      "name": "kelas 2 (Javascript Web Front End)",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Kelas 3 (Javascript Back End & Database)"
+    },
+    {
+      "id": 4,
+      "name": "Kelas 4 (Javascript Mobile React Native)"
+    }
   ]
 }
