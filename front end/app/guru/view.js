@@ -1,11 +1,22 @@
 define((require, exports, module) => {
     'use strict'
 
-    //const Backbone = require('backbone')
-    const LayoutManager = require('layoutmanager')
-    const template = require('text!./template.html')
+    const LayoutManager = require('layoutmanager'),
+        template = require('text!./template.html'),
+        Table = require('./table/view')
 
     module.exports = LayoutManager.extend({
-        template: _.template(template)
+        el: false,
+        template: _.template(template),
+        initialize() {
+            this.table = new Table()
+            this.on('cleanup', () => {
+                this.table.remove()
+            })
+        },
+        afterRender() {
+            this.$el.after(this.table.$el)
+            this.table.render()
+        }
     })
 })

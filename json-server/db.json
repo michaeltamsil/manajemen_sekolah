@@ -12,5 +12,13 @@
       "gender": "laki-laki",
       "id": 2
     }
+  ],
+  "guru": [
+    {
+      "id": 1,
+      "name": "Hendra",
+      "birthdate": "1999-02-01",
+      "gender": "laki-laki"
+    }
   ]
 }

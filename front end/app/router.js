@@ -14,7 +14,7 @@ define((require, exports, module) => {
         routes:{
             '':'showDashboard',
             'siswa(/*subrouter)': 'loadRouterSiswa',
-            'guru': 'showGuru',
+            'guru(/*subrouter)': 'loadRouterGuru',
             'kelas': 'showKelas',
             'mata_pelajaran': 'showMata_Pelajaran',
             'jadwal_pelajaran': 'showJadwal_Pelajaran',
@@ -58,10 +58,14 @@ define((require, exports, module) => {
                 })
             }
         },
-        showGuru(){
-            require(['./guru/view'], View => {
-                this.fnNewModule(View)
-            })
+        loadRouterGuru(){
+            if(!this.routerModule.guru){
+                require([`./guru/router`], Router => {
+                    this.routerModule.guru = new Router('guru',{
+                        createTrailingSlashRoutes: true
+                    })
+                })
+            }
         },
         showKelas(){
             require(['./kelas/view'], View => {
