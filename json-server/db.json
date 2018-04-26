@@ -1,4 +1,5 @@
 {
+"hari":["senin", "selasa", "rabu", "khamis", "jumat", "sabtu", "minggu"],
   "siswa": [
     {
       "id": 1,

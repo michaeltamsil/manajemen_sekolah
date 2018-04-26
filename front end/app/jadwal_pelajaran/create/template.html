@@ -5,25 +5,33 @@
             <form>
                 <div class="form-group row">
                     <label for="kelas" class="col-sm-4 col-form-label text-right">Kelas</label>
-                    <div class="col-sm-8" component-select-name="kelas">
+                    <div class="col-sm-8">
+                        <select class="form-control" name="kelas" id="kelas"></select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="hari" class="col-sm-4 col-form-label text-right">Hari</label>
-                    <div class="col-sm-8" component-select-name="hari">
+                    <div class="col-sm-8">
+                        <select class="form-control" name="hari" id="hari"></select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="mata_pelajaran" class="col-sm-4 col-form-label text-right">Mata Pelajaran</label>
-                    <div class="col-sm-8" component-select-name="mata_pelajaran"></div>
+                    <div class="input-group col-sm-8">
+                        <select class="form-control" name="mata_pelajaran"></select>
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
                 <div class="from-group row">
                     <div class="col-sm-8 offset-sm-4">
                         <button class="btn btn-success btn-sm" type="submit">Create</button>
                         <a class="btn btn-default btn-sm" name="close" href="<%
-                        let hashSplit = window.location.hash.split('/')
-                        hashSplit.pop()
-                        print(`${hashSplit.join('/')}`) %>">Close</a>
+                            let hashSplit = window.location.hash.split('/')
+                            hashSplit.pop()
+                            print(`${hashSplit.join('/')}`)
+                        %>">Close</a>
                     </div>
                 </div>
             </form>
