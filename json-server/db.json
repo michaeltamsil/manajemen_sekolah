@@ -65,5 +65,12 @@
       "id": 8
     }
   ],
-  "jadwal_pelajaran": []
+  "jadwal_pelajaran": [
+    {
+      "kelas": "kelas 1 B",
+      "hari": "selasa",
+      "mata_pelajaran": "Arduino",
+      "id": 1
+    }
+  ]
 }

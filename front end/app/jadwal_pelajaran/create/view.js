@@ -5,22 +5,25 @@ define((require, exports, module) => {
         template = require('text!./template.html'),
         Model = require('./../model'),
         Syphon = require('backbone.syphon'),
-        ComponentSelectHari = require('component/select/hari/view'),
-        ComponentSelectKelas = require('component/select/kelas/view')
+        select = require('component/select/collection')
 
     module.exports = LayoutManager.extend({
         className: 'row',
         template: _.template(template),
         initialize(){
-            this.component = {}
+            this.component = {
+                select: {
+                    hari: new select.Hari({parent: this }),
+                    kelas: new select.Kelas({parent: this }),
+                    mata_pelajaran: new select.Mata_Pelajaran({parent: this })
+                }
+            }
             this.model = new Model()
             this.listenTo(this.model, 'sync', ()=> {
                 let hashSplit = window.location.hash.split('/')
                 hashSplit.pop()
                 window.location.hash = `${hashSplit.join('/')}`
             })
-            this.component.selectHari = new ComponentSelectHari({parent: this })
-            this.component.selectKelas = new ComponentSelectKelas({parent: this })
         },
         events:{
             'submit form': 'submitForm'

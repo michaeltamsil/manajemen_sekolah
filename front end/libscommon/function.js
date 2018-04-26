@@ -4,7 +4,7 @@ define((require, exports, module) => {
         config = require('config')
 
     module.exports = {
-        async getDataKelas(options){
+        async getDataKelas(options) {
             let result = []
             try {
                 result = await $.ajax({
@@ -15,8 +15,18 @@ define((require, exports, module) => {
             } catch (error) {
                 console.error(error)
             }
+        },
+        async getDataMata_Pelajaran(options) {
+            let result = []
+            try {
+                result = await $.ajax({
+                    url: `${config.urlAPI}mata_pelajaran`,
+                })
+                options && options.onSuccess && options.onSuccess(result)
 
-
+            } catch (error) {
+                console.error(error)
+            }
         }
     }
 });

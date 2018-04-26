@@ -2,22 +2,23 @@ define((require, exports, module) => {
     'use strict'
 
     const LayoutManager = require('layoutmanager'),
-        config = require('config')
+        config = require('config'),
+        name= 'hari'
 
     module.exports = LayoutManager.extend({
         tagName: 'select',
         className: 'form-control',
-        name: 'selectHari',
+        name,
         attributes: {
-            id: 'hari',
-            name: 'hari'
+            id: name,
+            name
         },
         initialize(options) {
             let { parent } = options || {}
             if(parent && parent instanceof LayoutManager){
                 parent.on('afterRender', view => {
                     if(this.name)
-                        view.insertView(`[component-name="${this.name}"]`, this)
+                        view.insertView(`[component-select-name="${this.name}"]`, this)
                         this.render()
                 })
             }
