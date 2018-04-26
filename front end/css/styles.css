@@ -5,3 +5,7 @@ a.btn, a.btn:hover {
 .tr-pointer > tr {
     cursor: pointer
 }
+
+.mata-pelajaran-adddelete-button:first{
+    color:red ;
+}

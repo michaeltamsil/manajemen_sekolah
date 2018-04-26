@@ -1,5 +1,13 @@
 {
-"hari":["senin", "selasa", "rabu", "khamis", "jumat", "sabtu", "minggu"],
+  "hari": [
+    "senin",
+    "selasa",
+    "rabu",
+    "khamis",
+    "jumat",
+    "sabtu",
+    "minggu"
+  ],
   "siswa": [
     {
       "id": 1,
@@ -72,6 +80,12 @@
       "hari": "selasa",
       "mata_pelajaran": "Arduino",
       "id": 1
+    },
+    {
+      "kelas": "Kelas 1 A",
+      "hari": "senin",
+      "mata_pelajaran": "Javascript Nodejs",
+      "id": 2
     }
   ]
 }

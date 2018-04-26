@@ -44,6 +44,7 @@ define((require, exports, module) => {
                     _.each(data_mata_pelajaran, mata_pelajaran => {
                         self.$('[name="mata_pelajaran"]').append(new Option(mata_pelajaran.name, mata_pelajaran.name))
                     })
+                    //self.templateMata_Pelajaran =  self.$('[name="mata_pelajaran"]').parents('.form-group').clone()
                 }
             })
 
