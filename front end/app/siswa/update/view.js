@@ -4,7 +4,8 @@ define((require, exports, module) => {
     const LayoutManager = require('layoutmanager'),
         template = require('text!./template.html'),
         Model = require('./../model'),
-        Syphon = require('backbone.syphon')
+        Syphon = require('backbone.syphon'),
+        fn = require('function')
 
     module.exports = LayoutManager.extend({
         className: 'row',
@@ -17,6 +18,18 @@ define((require, exports, module) => {
             'submit form': 'submitForm'
         },
         afterRender() {
+            const promiseGetDataKelas = new Promise((resolve, reject) => {
+                fn.getDataKelas({
+                    onSuccess(data){
+                        _.each(data, item => {
+                            self.$('[name="kelas"]').append(new Option(item.name, item.name))
+                        })
+                        // console.log('end fetch getDataKelas')
+                        resolve()
+                    }
+                })
+            });
+
             this.model.once('sync', (model, data, response) => {
                 Syphon.deserialize(this, data)
                 this.model.once('sync', () => {
@@ -25,7 +38,10 @@ define((require, exports, module) => {
                     window.location.hash = `${hashSplit.join('/')}`
                 })
             })
-            this.model.fetch()
+
+            Promise.all([promiseGetDataKelas]).then(() => {
+                this.model.fetch()
+            })
         },
         submitForm(e){
             e.preventDefault()

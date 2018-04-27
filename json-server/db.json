@@ -20,6 +20,13 @@
       "birthdate": "1995-07-26",
       "gender": "laki-laki",
       "id": 2
+    },
+    {
+      "kelas": "kelas 1 B",
+      "id": 3,
+      "name": "asia",
+      "birthdate": "1990-09-15",
+      "gender": "perempuan"
     }
   ],
   "guru": [

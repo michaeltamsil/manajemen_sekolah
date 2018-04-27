@@ -4,7 +4,8 @@ define((require, exports, module) => {
     const LayoutManager = require('layoutmanager'),
         template = require('text!./template.html'),
         Model = require('./../model'),
-        Syphon = require('backbone.syphon')
+        Syphon = require('backbone.syphon'),
+        fn = require('function')
 
     module.exports = LayoutManager.extend({
         className: 'row',
@@ -19,6 +20,15 @@ define((require, exports, module) => {
         },
         events:{
             'submit form': 'submitForm'
+        },
+        afterRender(){
+            fn.getDataKelas({
+                onSuccess(data){
+                    _.each(data, item => {
+                        self.$('[name="kelas"]').append(new Option(item.name, item.name))
+                    })
+                }
+            })    
         },
         submitForm(e){
             e.preventDefault()
