@@ -16,7 +16,7 @@ define((require, exports, module) => {
         },
         showList(){
             require(['./view'], View => {
-                console.trace()
+                //console.trace()
                 this.channelLayout.request('updateContent', View)
             })
         },

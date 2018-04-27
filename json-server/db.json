@@ -76,16 +76,20 @@
   ],
   "jadwal_pelajaran": [
     {
+      "id": 1,
       "kelas": "kelas 1 B",
       "hari": "selasa",
-      "mata_pelajaran": "Arduino",
-      "id": 1
+      "mata_pelajaran": [
+        "4"
+      ]
     },
     {
+      "id": 2,
       "kelas": "Kelas 1 A",
       "hari": "senin",
-      "mata_pelajaran": "Javascript Nodejs",
-      "id": 2
+      "mata_pelajaran": [
+        "6"
+      ]
     },
     {
       "id": 3,
@@ -95,6 +99,7 @@
         "7",
         "6",
         "4",
+        "3",
         "3"
       ]
     },

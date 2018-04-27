@@ -75,7 +75,7 @@ define((require, exports, module) => {
 
             this.model.once('sync', (model, data, response) => {
                 Syphon.deserialize(this, data)
-                if (data && data.mata_pelajaran && data.mata_pelajaran.length){
+                if (data && data.mata_pelajaran && typeof data.mata_pelajaran == 'object' && data.mata_pelajaran.length){
                     this.$('[name="mata_pelajaran[]"]').val(data.mata_pelajaran[0])
                     for(let i = 0, length = data.mata_pelajaran.length; i < length; i++){
                         if(i){
