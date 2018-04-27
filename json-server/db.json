@@ -88,15 +88,15 @@
       "id": 2
     },
     {
+      "id": 3,
       "kelas": "Kelas 2 A",
-      "hari": "rabu",
+      "hari": "sabtu",
       "mata_pelajaran": [
-        "Javascript Nodejs",
-        "Javascript MongoDB",
-        "Javascript React Native",
-        "Arduino"
-      ],
-      "id": 3
+        "7",
+        "6",
+        "4",
+        "3"
+      ]
     },
     {
       "kelas": "Kelas 2 A",
@@ -106,6 +106,14 @@
         "8"
       ],
       "id": 4
+    },
+    {
+      "id": 5,
+      "kelas": "Kelas 2 A",
+      "hari": "sabtu",
+      "mata_pelajaran": [
+        "2"
+      ]
     }
   ]
 }

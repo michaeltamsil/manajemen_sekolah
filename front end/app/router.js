@@ -32,7 +32,7 @@ define((require, exports, module) => {
                     let previousView = this.layoutView.getView('#content')
                     previousView && previousView.remove()
                     this.layoutView.setView('#content', this.newModule)
-                    $('body').prepend(this.layoutView.render().$el)
+                    $('body').prepend(this.layoutView.render().el)
                 })
             }else{
                 let previousView = this.layoutView.getView('#content')

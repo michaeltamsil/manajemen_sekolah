@@ -6,7 +6,7 @@ define((require, exports, module) => {
         Table = require('./table/view')
 
     module.exports = LayoutManager.extend({
-        el: false,
+        //el: false,
         template: _.template(template),
         initialize() {
             this.table = new Table()

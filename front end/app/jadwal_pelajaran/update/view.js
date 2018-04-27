@@ -28,53 +28,63 @@ define((require, exports, module) => {
             let self = this
 
         const promiseGetDataKelas = new Promise((resolve, reject) => {
-            console.log('begin promiseGetDataKelas')
-            console.log('begin fetch getDataKelas')
+            // console.log('begin promiseGetDataKelas')
+            // console.log('begin fetch getDataKelas')
             fn.getDataKelas({
                 onSuccess(data){
                     _.each(data, item => {
                         self.$('[name="kelas"]').append(new Option(item.name, item.name))
                     })
-                    console.log('end fetch getDataKelas')
+                    // console.log('end fetch getDataKelas')
                     resolve()
                 }
             })
-            console.log('end promiseGetDataKelas')
+            // console.log('end promiseGetDataKelas')
         })
 
             const promiseGetDataHari = new Promise((resolve, reject) => {
-                console.log('begin promiseGetDataHari')
-                console.log('begin fetch getDataHari')
+                // console.log('begin promiseGetDataHari')
+                // console.log('begin fetch getDataHari')
                 fn.getDataHari({
                     onSuccess(data){
                         _.each(data, nama => {
                             self.$('[name="hari"]').append(new Option(nama, nama))
                         })
-                        console.log('end fetch getDataHari')
+                        // console.log('end fetch getDataHari')
                         resolve()
                     }
                 })
-                console.log('end promiseGetDataHari')
+                // console.log('end promiseGetDataHari')
             })
 
             const promiseGetDataMata_Pelajaran = new Promise((resolve, reject) => {
-                console.log('begin promiseGetDataMata_Pelajaran')
-                console.log('begin fetch getDataMata_Pelajaran')
+                // console.log('begin promiseGetDataMata_Pelajaran')
+                // console.log('begin fetch getDataMata_Pelajaran')
                 fn.getDataMata_Pelajaran({
                     onSuccess(data){
                         _.each(data, item => {
                             self.$('[name="mata_pelajaran[]"]').append(new Option(item.name, item.id))
                         })
                         self.templateMata_Pelajaran =  self.$('[name="mata_pelajaran[]"]').parents('.form-group').clone()
-                        console.log('end fetch getDataMata_Pelajaran')
+                        // console.log('end fetch getDataMata_Pelajaran')
                         resolve()
                     }
                 })
-                console.log('end promiseGetDataMata_Pelajaran')
+                // console.log('end promiseGetDataMata_Pelajaran')
             })
 
             this.model.once('sync', (model, data, response) => {
                 Syphon.deserialize(this, data)
+                if (data && data.mata_pelajaran && data.mata_pelajaran.length){
+                    this.$('[name="mata_pelajaran[]"]').val(data.mata_pelajaran[0])
+                    for(let i = 0, length = data.mata_pelajaran.length; i < length; i++){
+                        if(i){
+                            this.$('[name="add"]:visible').click()
+                        }
+                        this.$('[name="mata_pelajaran[]"]:last').val(data.mata_pelajaran[i])
+                    }
+                }
+
                 this.model.once('sync', () => {
                     let hashSplit = window.location.hash.split('/')
                     hashSplit.pop()
@@ -82,17 +92,17 @@ define((require, exports, module) => {
                 })
             })
 
-            console.log('begin promise')
+            // console.log('begin promise')
             Promise.all([
                 promiseGetDataKelas,
                 promiseGetDataHari,
                 promiseGetDataMata_Pelajaran])
             .then(() => {
-                console.log('start fetch')
+                // console.log('start fetch')
                 this.model.fetch()
-                console.log('start end')
+                // console.log('start end')
             })
-            console.log('end promise')
+            // console.log('end promise')
         },
         addMataPelajaran(e) {
             if(this.templateMata_Pelajaran){
@@ -100,7 +110,7 @@ define((require, exports, module) => {
                 $(e.currentTarget).parents('add-remove').after(DOM)
             }
         },
-        removeMataPelajaran(e){
+        removeMataPelajaran(e) {
             $(e.currentTarget).parents('add-remove').remove()
         },
         submitForm(e) {
