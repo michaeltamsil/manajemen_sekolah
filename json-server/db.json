@@ -10,16 +10,18 @@
   ],
   "siswa": [
     {
+      "kelas": "Kelas 2 A",
       "id": 1,
       "name": "budi",
       "birthdate": "1985-01-01",
       "gender": "laki-laki"
     },
     {
+      "kelas": "Kelas 1 A",
+      "id": 2,
       "name": "Anga",
       "birthdate": "1995-07-26",
-      "gender": "laki-laki",
-      "id": 2
+      "gender": "laki-laki"
     },
     {
       "kelas": "kelas 1 B",
@@ -31,10 +33,27 @@
   ],
   "guru": [
     {
+      "mata_pelajaran": [
+        "6",
+        "3",
+        "8",
+        "2"
+      ],
       "id": 1,
       "name": "Hendra",
       "birthdate": "1999-02-01",
       "gender": "laki-laki"
+    },
+    {
+      "name": "Hendra",
+      "birthdate": "1999-02-24",
+      "gender": "laki-laki",
+      "mata_pelajaran": [
+        "4",
+        "2",
+        "6"
+      ],
+      "id": 2
     }
   ],
   "kelas": [

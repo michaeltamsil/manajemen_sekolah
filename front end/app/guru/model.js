@@ -6,6 +6,11 @@ define((require, exports, module) => {
 
     module.exports = Backbone.Model.extend({
         urlRoot: `${config.urlAPI}guru`,
+        defaults(){
+            return {
+                mata_pelajaran: []
+            }
+        },
         initialize(){
             this.on('error', (model, response) => {
                 alert(response.statusText)
