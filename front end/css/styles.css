@@ -1,11 +1,16 @@
+div > add-remove:last-of-type [name="add"]{
+    display: block;
+}
+
+div > add-remove [name="add"],
+div > add-remove:last-of-type:first-of-type [name="remove"]{
+    display: none;
+}
+
 a.btn, a.btn:hover {
     color: black;
 }
 
 .tr-pointer > tr {
-    cursor: pointer
-}
-
-.mata-pelajaran-adddelete-button:first{
-    color:red ;
+    cursor: pointer;
 }

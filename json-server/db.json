@@ -86,6 +86,26 @@
       "hari": "senin",
       "mata_pelajaran": "Javascript Nodejs",
       "id": 2
+    },
+    {
+      "kelas": "Kelas 2 A",
+      "hari": "rabu",
+      "mata_pelajaran": [
+        "Javascript Nodejs",
+        "Javascript MongoDB",
+        "Javascript React Native",
+        "Arduino"
+      ],
+      "id": 3
+    },
+    {
+      "kelas": "Kelas 2 A",
+      "hari": "khamis",
+      "mata_pelajaran": [
+        "4",
+        "8"
+      ],
+      "id": 4
     }
   ]
 }

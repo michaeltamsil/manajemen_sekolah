@@ -19,35 +19,45 @@ define((require, exports, module) => {
             })
         },
         events:{
+            'click [name="add"]': 'addMataPelajaran',
+            'click [name="remove"]': 'removeMataPelajaran',
             'submit form': 'submitForm'
         },
         afterRender() {
             let self = this
             fn.getDataKelas({
-                onSuccess(dataKelas){
-                    _.each(dataKelas, (kelas) => {
-                        self.$('[name="kelas"]').append(new Option(kelas.name, kelas.name))
+                onSuccess(data){
+                    _.each(data, item => {
+                        self.$('[name="kelas"]').append(new Option(item.name, item.name))
                     })
                 }
             })
 
             fn.getDataHari({
-                onSuccess(data_hari){
-                    _.each(data_hari, (hari) => {
-                        self.$('[name="hari"]').append(new Option(hari, hari))
+                onSuccess(data){
+                    _.each(data, nama => {
+                        self.$('[name="hari"]').append(new Option(nama, nama))
                     })
                 }
             })
 
             fn.getDataMata_Pelajaran({
-                onSuccess(data_mata_pelajaran){
-                    _.each(data_mata_pelajaran, mata_pelajaran => {
-                        self.$('[name="mata_pelajaran"]').append(new Option(mata_pelajaran.name, mata_pelajaran.name))
+                onSuccess(data){
+                    _.each(data, item => {
+                        self.$('[name="mata_pelajaran[]"]').append(new Option(item.name, item.id))
                     })
-                    //self.templateMata_Pelajaran =  self.$('[name="mata_pelajaran"]').parents('.form-group').clone()
+                    self.templateMata_Pelajaran =  self.$('[name="mata_pelajaran[]"]').parents('.form-group').clone()
                 }
             })
-
+        },
+        addMataPelajaran(e) {
+            if(this.templateMata_Pelajaran){
+                let DOM = this.templateMata_Pelajaran.clone()
+                $(e.currentTarget).parents('add-remove').after(DOM)
+            }
+        },
+        removeMataPelajaran(e){
+            $(e.currentTarget).parents('add-remove').remove()
         },
         submitForm(e) {
             e.preventDefault()
