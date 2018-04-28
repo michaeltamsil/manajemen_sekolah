@@ -28,7 +28,7 @@ define((require, exports, module) => {
                         self.$('[name="kelas"]').append(new Option(item.name, item.name))
                     })
                 }
-            })    
+            })
         },
         submitForm(e){
             e.preventDefault()
