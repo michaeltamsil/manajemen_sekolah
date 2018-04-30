@@ -24,7 +24,6 @@ define((require, exports, module) => {
                         _.each(data, item => {
                             self.$('[name="kelas"]').append(new Option(item.name, item.name))
                         })
-                        // console.log('end fetch getDataKelas')
                         resolve()
                     }
                 })

@@ -36,6 +36,7 @@ define((require, exports, module) => {
 
             this.model.once('sync', (model, data, response) => {
                 Syphon.deserialize(this, data)
+                
                 if (data && data.mata_pelajaran && typeof data.mata_pelajaran == 'object' && data.mata_pelajaran.length){
                     this.$('[name="mata_pelajaran[]"]').val(data.mata_pelajaran[0])
                     for(let i = 0, length = data.mata_pelajaran.length; i < length; i++){
@@ -45,13 +46,12 @@ define((require, exports, module) => {
                         this.$('[name="mata_pelajaran[]"]:last').val(data.mata_pelajaran[i])
                     }
                 }
+
                 this.model.once('sync', () => {
                     let hashSplit = window.location.hash.split('/')
                     hashSplit.pop()
                     window.location.hash = `${hashSplit.join('/')}`
                 })
-
-
             })
 
             Promise.all([
